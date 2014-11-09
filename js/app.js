@@ -6,23 +6,21 @@
     The array of employee objects is already in a global variable named 'pawneeEmployees'
 */
 
-var addressBookModule = angular.module('AddressBook', []);
+angular.module('AddressBook', [])
+    .controller('AddressBookController', function ($scope) {
+        $scope.employees = pawneeEmployees;
+        $scope.sortCol = 'lastName';
 
+        $scope.searchString = '';
+        $scope.sortReverse = false;
 
-addressBookModule.controller('AddressBookController', function ($scope) {
-    $scope.employees = pawneeEmployees;
-    $scope.sortCol = 'lastName';
-
-    //$scope.searchString = '';
-    //$scope.sortReverse = false;
-
-    //$scope.sortBy = function (colName) {
-    //    if ($scope.sortCol == colName) {
-    //        $scope.sortReverse = !$scope.sortReverse;
-    //    }
-    //    else {
-    //        $scope.sortReverse = false;
-    //    }
-    //    $scope.sortCol = colName;
-    //}
-});
+        $scope.sortBy = function (colName) {
+            if ($scope.sortCol == colName) {
+                $scope.sortReverse = !$scope.sortReverse;
+            }
+            else {
+                $scope.sortReverse = false;
+            }
+            $scope.sortCol = colName;
+        }
+    });
