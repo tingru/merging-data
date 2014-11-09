@@ -6,6 +6,8 @@
     The array of employee objects is already in a global variable named 'pawneeEmployees'
 */
 
+"use strict";
+
 angular.module('AddressBook', [])
     .controller('AddressBookController', function ($scope) {
         $scope.employees = pawneeEmployees;

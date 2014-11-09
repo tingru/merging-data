@@ -24,9 +24,9 @@
                 <div class="sort-ui">
                     <span>Sort By: </span>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default">Last Name</button>
-                        <button type="button" class="btn btn-default">First Name</button>
-                        <button type="button" class="btn btn-default">Department</button>
+                        <button type="button" class="btn btn-default" ng-click="sortBy('lastName')">Last Name</button>
+                        <button type="button" class="btn btn-default" ng-click="sortBy('firstName')">First Name</button>
+                        <button type="button" class="btn btn-default" ng-click="sortBy('department')">Department</button>
                     </div>
                 </div>
                 <!-- filter input; you will add attributes to make this filter the list based on value entered -->
@@ -37,8 +37,8 @@
 
             <section>
                 <ul class="cards">
-                    <li class="card" ng-repeat="employee in employees =
-                        (employees | filter : {title: searchString} | orderBy : sortCol : sortReverse)">
+                    <li class="card" ng-repeat="employee in filteredEmployees =
+                        (employees | filter : searchString | orderBy : sortCol : sortReverse)">
                         <!-- this img should show the employee picture -->
                         <img ng-src="{{employee.picUrl}}" alt="picture of {{employee.firstName}} {{employee.lastName}}">
                         <div class="details">
@@ -46,7 +46,7 @@
                             <p class="title">{{employee.title}}</p>
                             <p class="department">{{employee.department}}</p>
                             <p class="phone" np-if="{{employee.phone}}"><a href="tel:{{employee.phone}}">{{employee.phone}}</a></p>
-                            <p class="email" np-if="{{employee.email}}"><a href="mailto:{{employee.email}}">{{employee.email}}</a></p></a></p>
+                            <p class="email" np-if="{{employee.email}}"><a href="mailto:{{employee.email}}">{{employee.email}}</a></p>
                         </div>
                     </li>
                 </ul>
