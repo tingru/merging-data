@@ -9,7 +9,7 @@
 "use strict";
 
 angular.module('AddressBook', [])
-    .controller('AddressBookController', function ($scope) {
+    .controller('AddressController', function ($scope) {
         $scope.employees = pawneeEmployees;
         $scope.sortCol = 'lastName';
 
