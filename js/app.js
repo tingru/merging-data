@@ -12,24 +12,17 @@ angular.module('AddressBook', [])
     .controller('AddressController', function ($scope) {
         $scope.employees = pawneeEmployees;
         $scope.sortCol = 'lastName';
-
         $scope.searchString = '';
         $scope.sortReverse = false;
-
         $scope.sortBy = function (colName) {
             if ($scope.sortCol == colName) {
                 $scope.sortReverse = !$scope.sortReverse;
             } else {
                 $scope.sortReverse = false;
-            }
-            $scope.sortCol = colName;
+                $scope.sortCol = colName;
+            }            
         }
-
         $scope.isSortedBy = function (colName) {
-            if ($scope.sortCol == colName) {
-                return true;
-            } else {
-                return false;
-            }
+            return $scope.sortCol == colName;
         }
     });
